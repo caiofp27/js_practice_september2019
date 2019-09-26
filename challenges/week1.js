@@ -27,7 +27,7 @@ function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   if(str.length % 2 === 0){
     return str[(str.length/2)-1]+str[str.length/2];
-    }else {
+  }else {
     return str[Math.floor(str.length / 2)];
   }
 }
@@ -39,7 +39,12 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  let reverse = [];
+  for(let i in words){
+    let word = words[i].split("").reverse().join("");
+    reverse.push(word);
+  }
+  return reverse;
 }
 
 function countLinuxUsers(users) {

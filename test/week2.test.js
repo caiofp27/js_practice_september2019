@@ -6,7 +6,7 @@ const {
   hasMPostCode
 } = require("../challenges/week2");
 
-describe("getFillings", () => {
+describe.only("getFillings", () => {
   test("returns the fillings of a sandwich", () => {
     const sandwich = {
       bread: "Sourdough",
@@ -24,7 +24,7 @@ describe("getFillings", () => {
   });
 });
 
-describe("isFromManchester", () => {
+describe.only("isFromManchester", () => {
   test("returns true if the person is from Manchester", () => {
     const person = {
       name: "Mohammed",
@@ -44,7 +44,7 @@ describe("isFromManchester", () => {
   });
 });
 
-describe("getBusNumbers", () => {
+describe.only("getBusNumbers", () => {
   // A bus can hold 40 people. This function should return how many buses are required for the number of people
   test("returns 1 if all the people fit in 1 bus", () => {
     expect(getBusNumbers(1)).toBe(1);
@@ -73,7 +73,7 @@ describe("getBusNumbers", () => {
   });
 });
 
-describe("countSheep", () => {
+describe.only("countSheep", () => {
   test("returns 0 if there are 0 sheep in the array", () => {
     const arr = ["dog", "badger", "dog", "dog", "chicken"];
     expect(countSheep(arr)).toBe(0);
@@ -105,7 +105,7 @@ describe("countSheep", () => {
   });
 });
 
-describe("hasMPostCode", () => {
+describe.only("hasMPostCode", () => {
   test("returns true if the person has a postcode starting with M", () => {
     const person = {
       name: "Mohammed",

@@ -63,8 +63,13 @@ function getSquareRoots(nums) {
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
-  if (!str) throw new Error("str is required");
-  // Your code here
+  let newSent = [];
+  sentences.forEach(function (n) {
+    if (n.toLowerCase().indexOf(str.toLowerCase()) > -1) {
+      newSent.push(n);
+    }
+  });
+  return newSent;
 }
 
 function getLongestSides(triangles) {

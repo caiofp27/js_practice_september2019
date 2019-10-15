@@ -9,7 +9,7 @@ const {
   getLongestSides
 } = require("../challenges/week4");
 
-describe("findSmallNums", () => {
+describe.only("findSmallNums", () => {
   test("returns an array of numbers smaller than 1", () => {
     expect(findSmallNums([8, 1, 1.3, 0.9, 0.4, -1])).toEqual([0.9, 0.4, -1]);
     expect(findSmallNums([-7, -243])).toEqual([-7, -243]);
@@ -18,7 +18,7 @@ describe("findSmallNums", () => {
   });
 });
 
-describe("findNamesBeginningWith", () => {
+describe.only("findNamesBeginningWith", () => {
   test("returns an array of names beginning with the specified character", () => {
     const names = ["Sally", "Dave", "Susan", "Geoff", "Riley", "Sam"];
     expect(findNamesBeginningWith(names, "S")).toEqual([
@@ -31,7 +31,7 @@ describe("findNamesBeginningWith", () => {
   });
 });
 
-describe("findVerbs", () => {
+describe.only("findVerbs", () => {
   test("returns an array of words that are considered verbs (because they begin with 'to ')", () => {
     const words = [
       "to eat",
@@ -58,7 +58,7 @@ describe("findVerbs", () => {
   });
 });
 
-describe("getIntegers", () => {
+describe.only("getIntegers", () => {
   test("returns an array containing only integers", () => {
     const nums = [1, 3.5, 2.1, 1, 4, 9];
     expect(getIntegers(nums)).toEqual([1, 1, 4, 9]);
@@ -67,7 +67,7 @@ describe("getIntegers", () => {
   });
 });
 
-describe("getCities", () => {
+describe.only("getCities", () => {
   test("returns an array of the cities of each user", () => {
     const users = [
       {
@@ -111,14 +111,14 @@ describe("getCities", () => {
   });
 });
 
-describe("getSquareRoots", () => {
+describe.only("getSquareRoots", () => {
   test("gets the square root of each number to 2 decimal places", () => {
     const nums = [36, 77, 12, 355, 92, 5];
     expect(getSquareRoots(nums)).toEqual([6, 8.77, 3.46, 18.84, 9.59, 2.24]);
   });
 });
 
-describe("findSentencesContaining", () => {
+describe.only("findSentencesContaining", () => {
   const sentencesAboutPackageJson = [
     "You should specify a license for your package so that people know how they are permitted to use it",
     "The main field is a module ID that is the primary entry point to your program",
@@ -154,7 +154,7 @@ describe("findSentencesContaining", () => {
   });
 });
 
-describe("getLongestSides", () => {
+describe.only("getLongestSides", () => {
   test("returns the longest side of each set of triangle data", () => {
     const data = [[6, 7, 10], [9, 3, 6], [6, 3, 5], [6, 13, 12], [7, 12, 8]];
     expect(getLongestSides(data)).toEqual([10, 9, 6, 13, 12]);

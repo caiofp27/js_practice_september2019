@@ -2,7 +2,9 @@ const {
   sumMultiples,
   areWeCovered,
   isValidDNA,
-  getComplementaryDNA
+  getComplementaryDNA,
+  isItPrime,
+  createMatrix
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -113,5 +115,34 @@ describe("getComplementaryDNA", () => {
   test("it returns the correct string even when its lower case", () => {
     const dna = "ccTTggGaa";
     expect(getComplementaryDNA(dna)).toBe("GGAACCCTT");
+  });
+});
+
+describe("isItPrime", () => {
+  test("return true if its a prime number even with decimal numbers", () => {
+    expect(isItPrime(7.5)).toBe(true);
+    expect(isItPrime(13)).toBe(true);
+    expect(isItPrime(37)).toBe(true);
+    expect(isItPrime(97)).toBe(true);
+  });
+
+  test("it return false if its not a prime number", () => {
+    expect(isItPrime(4)).toBe(false);
+    expect(isItPrime(10)).toBe(false);
+    expect(isItPrime(24)).toBe(false);
+    expect(isItPrime(100)).toBe(false);
+  });  
+});
+
+describe("createMatrix", () => {
+  it("returns a matrix of 1*1 when passed 1", () => {
+    const result = createMatrix(1, "foo");
+    const expected = [ ["foo"] ];
+    expect(result).toEqual(expected);
+  });
+  it("returns a matrix of 3*3 when passed 3", () => {
+    const result = createMatrix(3, "caaa");
+    const expected = [ ["caaa", "caaa", "caaa"], ["caaa", "caaa", "caaa"], ["caaa", "caaa", "caaa"] ];
+    expect(result).toEqual(expected);
   });
 });

@@ -23,6 +23,13 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let s = str.toUpperCase();
+  for(let i=0; i<s.length; i++){
+    if(s[i] !== "A" && s[i] !== "C" && s[i] !== "G" && s[i] !== "T"){
+      return false;
+    }
+  }
+  return true;
 };
 
 /**
@@ -32,6 +39,20 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let s = str.toUpperCase();
+  let newStr = s.split("");
+  for(let i=0; i<s.length; i++){
+    if(s[i] === "A"){
+      newStr[i] = "T";
+    }else if(s[i] === "T"){
+      newStr[i] = "A";
+    }else if(s[i] === "G"){
+      newStr[i] = "C";
+    }else{
+      newStr[i] = "G";
+    }
+  }
+  return newStr.join("");
 };
 
 /**

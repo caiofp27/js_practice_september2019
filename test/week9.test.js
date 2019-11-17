@@ -1,6 +1,8 @@
 const {
   sumMultiples,
-  areWeCovered
+  areWeCovered,
+  isValidDNA,
+  getComplementaryDNA
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -67,5 +69,49 @@ describe("areWeCovered", () => {
     ];
     expect(areWeCovered(staff, "Tuesday")).toBe(true);
     expect(areWeCovered(staff, "Monday")).toBe(true);
+  });
+});
+
+describe("isValidDNA", () => {
+  test("it returns false if there are different characters than C, G, T or A", () => {
+    const dna = "AGTCD";
+    expect(isValidDNA(dna)).toBe(false);
+  });
+
+  test("it returns false if the characters are different than C, G, T or A even in lower and upper case", () => {
+    const dna = "bGEfV";
+    expect(isValidDNA(dna)).toBe(false);
+  });
+
+  test("it returns true if the characters are C, G, T or A only", () => {
+    const dna = "AGTC";
+    expect(isValidDNA(dna)).toBe(true);
+  });
+
+  test("it returns true if the characters are C, G, T or A only", () => {
+    const dna = "AC";
+    expect(isValidDNA(dna)).toBe(true);
+  });
+
+  test("it returns true even with lower and upper case", () => {
+    const dna = "aGtC";
+    expect(isValidDNA(dna)).toBe(true);
+  });
+});
+
+describe("getComplementaryDNA", () => {
+  test("it returns TGAC, T always pairs with A, and C always pairs with G", () => {
+    const dna = "AGTC";
+    expect(getComplementaryDNA(dna)).toBe("TCAG");
+  });
+  
+  test("it returns GACT", () => {
+    const dna = "CTGA";
+    expect(getComplementaryDNA(dna)).toBe("GACT");
+  });
+
+  test("it returns the correct string even when its lower case", () => {
+    const dna = "ccTTggGaa";
+    expect(getComplementaryDNA(dna)).toBe("GGAACCCTT");
   });
 });

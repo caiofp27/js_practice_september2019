@@ -135,6 +135,31 @@ const hexToRGB = hex => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  if (board.length !== 3) throw new Error("a valid board is required"); 
+  let line1 = board[0];
+  let line2 = board[1];
+  let line3 = board[2];
+  let result;
+  if(line1[0] === line2[0] && line1[0] === line3[0]){
+    result = line1[0];
+  }else if(line1[0] === line2[1] && line1[0] === line3[2]){
+    result = line1[0];
+  }else if(line1[1] === line2[1] && line1[1] === line3[1]){
+    result = line1[1];
+  }else if(line1[2] === line2 [1] && line1[2] === line3[0]){
+    result = line1[2];
+  }else if(line1[2] === line2[2] && line1[2] === line3[2]){
+    result = line1[2];
+  }else if(line1[0] === line1[1] && line1[0] === line1[2]){
+    result = line1[0];
+  }else if(line2[0] === line2[1] && line2[2]){
+    result = line2[0];
+  }else if(line3[0] === line3[1] && line3[2]){
+    result = line3[0];
+  }else{
+    result = null;
+  }
+  return result;
 };
 
 module.exports = {

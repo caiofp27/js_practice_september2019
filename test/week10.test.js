@@ -2,7 +2,8 @@ const {
   sumDigits,
   createRange,
   getScreentimeAlertList,
-  hexToRGB
+  hexToRGB,
+  findWinner
 } = require("../challenges/week10");
 
 describe("sumDigits", () => {
@@ -129,5 +130,27 @@ describe("hexToRGB", () => {
     expect(hexToRGB("#AA4432")).toBe("rgb(170, 68, 50)");
     expect(hexToRGB("#FFFFFF")).toBe("rgb(255, 255, 255)");
     expect(hexToRGB("#EE3211")).toBe("rgb(238, 50, 17)");
+  });
+});
+
+describe("findWinner", () => {
+  test("it throws an error if not passed a board", () => {
+    expect(() => {
+      const board = undefined;
+      findWinner(board)
+    }).toThrow("board is required");
+  });
+
+  test("it throws an error if not passed a valid board", () => {
+    expect(() => {
+      const board = [["X", 0, null]];
+      findWinner(board)
+    }).toThrow("a valid board is required");
+  });
+
+  test("it returns the winner of the game", () => {
+    expect(findWinner([["X", 0, null],["X", null, 0], ["X", 0, null]])).toBe("X");
+    expect(findWinner([["X", 0, null],["X", 0, null], [null, 0, "X"]])).toBe(0);
+    expect(findWinner([["X", 0, null],[0, "X", null], [null, 0, "X"]])).toBe("X");
   });
 });
